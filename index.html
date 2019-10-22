@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>What is dis shit</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="poop.png" type="image/icon">
+    <style>
+        div {
+            font-size: 500%;
+            user-select: none;
+            align-content: center;
+            text-align: center;
+        }
+
+        body {
+            color: yellow;
+            background-image: url(https://media3.giphy.com/media/VELC2400W8PbG/giphy.gif?cid=790b76113efe0e16cb49e06ddb25f13ca217bf7be51dbb74&rid=giphy.gif);
+            background-repeat: none;
+            background-size: cover;
+        }
+
+        #Tier1,
+        #Tier2,
+        #Tier3,
+        #Tier4 {
+            display: inline-block;
+            padding: 0.35em 1.2em;
+            border: 0.1em solid #FFFFFF;
+            margin: 0 0.3em 0.3em 0;
+            border-radius: 0.12em;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            color: rgb(83, 83, 83);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+
+        #Tier1:hover {
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+
+        #Tier2:hover {
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+
+        #Tier3:hover {
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+
+        #Tier4:hover {
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+
+        #pointsInfo {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #seizure {
+            font-size: 15px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="image" onclick="changeImage()"></div>
+    <div id="pointsInfo"></div>
+    <div class="wrapper"><button id="Tier1" onclick="buyUpgradeTier1()">Oppgradering Tier 1 (10 Poeng)</button><br />
+        <button id="Tier2" onclick="buyUpgradeTier2()">Oppgradering Tier 2 (10 000 Poeng)</button><br />
+        <button id="Tier3" onclick="buyUpgradeTier3()">Oppgradering Tier 3 (1 000 000 Poeng)</button><br />
+        <button id="Tier4" onclick="buyUpgradeTier4()">Oppgradering Tier 4 (100 000 000 Poeng)</button><br />
+        <div id="seizure">Seizure warning!</div>
+
+    </div>
+
+    <script>
+        var imageDiv = document.getElementById('image');
+        var pointsDiv = document.getElementById('pointsInfo');
+
+        // model 
+        var points = 0;
+        var pointsPerClick = 1;
+
+
+        // controller
+        function changeImage() {
+            points += pointsPerClick;
+            show();
+
+        }
+        function buyUpgradeTier1() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            show();
+        }
+
+        function buyUpgradeTier2() {
+            if (points < 10000) return;
+            points -= 10000;
+            pointsPerClick += 100;
+            show();
+        }
+
+        function buyUpgradeTier3() {
+            if (points < 1000000) return;
+            points -= 1000000;
+            pointsPerClick += 500;
+            show();
+        }
+
+        function buyUpgradeTier4() {
+            if (points < 100000000) return;
+            points -= 100000000;
+            pointsPerClick += 1000;
+            show();
+        }
+
+
+        // view
+        show();
+        function show() {
+            imageDiv.innerHTML = points % 2 === 0 ? '😀' : '😃';
+            pointsDiv.innerHTML = points;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
